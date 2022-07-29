@@ -1,0 +1,8 @@
+#------------DATASET CONFIG-------------
+NAME: "COCO"
+DATASET_PATH : '/data/yangqi/dataset/COCO/'  
+MEAN: [0.485, 0.456, 0.406]
+STD: [0.229, 0.224, 0.225]
+NUM_CLASSES: 81  # Num classes = objects + background
+min_dim: 300  #min_dim 输入图片的短边长，由于这里输入图片都resize成正方形了，直接理解为input的尺寸
+MEANS : [104, 117, 123]

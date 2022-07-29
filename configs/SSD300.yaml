@@ -1,0 +1,6 @@
+# use the scales here: https://githubcom/amdegroot/ssdpytorch/blob/master/data/configpy
+figsize : 300
+feat_size : [38, 19, 10, 5, 3, 1] #Conv4_3 Conv7[fc7] Conv8_2 Conv9_2 Conv10_2 Conv11_2
+steps : [8, 16, 32, 64, 100, 300] # 每个点的视野
+scales : [[21,45],[45,99],[99,153], [153,207],[207,261],[261,315]]
+aspect_ratios : [[2], [2, 3], [2, 3], [2, 3], [2], [2]]  # 包含其倒数
