@@ -21,7 +21,7 @@ from ssd.train_utils import load_checkpoint, tencent_trick, train_loop
 from utils.Logger import Logger
 from utils.multi_gpu import init_distributed_mode
 
-
+# Thanks to！
 # https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Detection/SSD
 # https://catalog.ngc.nvidia.com/models
 def main():
@@ -41,11 +41,9 @@ def main():
                         choices=['training', 'evaluation', 'benchmark-training', 'benchmark-inference'])
     parser.add_argument('--epochs', '-e', type=int, default=100,
                         help='number of epochs for training') #default 65
-    # parser.add_argument('--evaluation', nargs='*', type=int, default=[21, 31, 37, 42, 48, 53, 59, 64],
-    #                     help='epochs at which to evaluate')
-    #TODO need less
-    parser.add_argument('--evaluation', nargs='*', type=int, default=[1000],
+    parser.add_argument('--evaluation', nargs='*', type=int, default=[21, 31, 37, 42, 48, 53, 59, 64],
                         help='epochs at which to evaluate')
+
     parser.add_argument('--multistep', nargs='*', type=int, default=[43, 54],
                         help='epochs at which to decay learning rate')
     parser.add_argument('--warmup', type=int, default=None)
@@ -70,7 +68,7 @@ def main():
                              ' When it is not provided, pretrained model from torchvision'
                              ' will be downloaded.')
     parser.add_argument('--report-period', type=int, default=100, help='Report the loss every X times.')
-    
+    # TODO add by yourself.
     # parser.add_argument('--save-period', type=int, default=-1, help='Save checkpoint every x epochs (disabled if < 1)')
     
     # Multi Gpu
@@ -233,7 +231,7 @@ def main():
             if args.local_rank == 0:
                 log.logger.info('Epoch:',epoch,'Acc:', acc)
         # Save model
-        if args.save and args.local_rank == 0:
+        if args.save and args.local_rank == 0 :
             print("saving model...")
             obj = {'epoch': epoch + 1,
                    'iteration': iteration,
@@ -250,29 +248,6 @@ def main():
             log.logger.info('total time:', total_time )
 
 
-   
-    # #Save model   
-        
-    #     test_accuracy = compute_accuracy(args,test_dataloader,net)
-    #     log.logger.info('test_accuracy is: %s',test_accuracy)
-    #     scheduler.step(mean_loss)
-        
-        
-    #     if  test_accuracy > best_test_accuracy :
-    #         best_epoch = epoch
-    #         best_test_accuracy = test_accuracy
-    #         print('Best acc is:',best_test_accuracy)
-    #         save_path = args.CHECKPOINT_DIR+'/'+args.model_name+'.pth'
-    #         torch.save(net.state_dict(), save_path)
-    #     if args.save_data == True:
-    #         save_loss.append(mean_loss.item())
-    #         save_acc.append(test_accuracy)
-    # log.logger.info('Best acc is: %s \n,Best epoch is: %s',best_test_accuracy,best_epoch)
-    # if args.save_data == True:
-    #     #字典中的key值即为csv中列名
-    #     dataframe = pd.DataFrame({'Epoch_loss':save_loss,'val_acc':save_acc})
-    #     #将DataFrame存储为csv,index表示是否显示行名，default=True
-    #     dataframe.to_csv('output/plot_data/'+args.model_name+'.csv',index=False,sep=',')
 
 
 

@@ -138,3 +138,7 @@ cython_debug/
 
 # Checkpoints
 *.pt
+
+
+# TODO more
+data_DALI_useless/
