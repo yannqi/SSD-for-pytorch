@@ -40,7 +40,7 @@ git clone https://gitee.com/yann_qi/ssd-for-pytorch.git
 or
 
 ```
-git clone https://github.com/yannqi/SSD-for-pytorch
+git clone https://github.com/yannqi/SSD-for-pytorch.git
 
 ```
 2. Download and preprocess the dataset.
